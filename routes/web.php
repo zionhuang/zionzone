@@ -22,3 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/articles', 'ArticleController@index')->name('articles');
 
 Route::get('/article', 'ArticleController@article');
+
+Route::get('/create', function () {
+    return view('create');
+});
+
+Route::post('/create', 'ArticleController@store')->name('create');

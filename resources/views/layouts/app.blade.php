@@ -67,11 +67,13 @@
                                         <a href="{{ route('articles') }}">
                                             articleList
                                         </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('create') }}">
+                                            新建文章
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </li>
                         @endguest

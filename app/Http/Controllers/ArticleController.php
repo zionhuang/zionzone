@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -40,8 +41,20 @@ class ArticleController extends Controller
         return view('article', ['data' => $articleInfo]);
     }
 
-    public function post(Request $request)
+    public function store(Request $request)
     {
+        $title = $request->get('title');
+        $content = $request->get('content');
+        $user = Auth::user();
+        $uid = $user->id;
+        $insert = [
+            'title' => $title,
+            'content' => $content,
+            'uid' => $uid,
+        ];
+        $result = Article::create($insert);
+
+        return $result;
 
 
     }
