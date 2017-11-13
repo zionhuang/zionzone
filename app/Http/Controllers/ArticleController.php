@@ -54,7 +54,11 @@ class ArticleController extends Controller
         ];
         $result = Article::create($insert);
 
-        return $result;
+        if (!$result) {
+            return 'Error!';
+        }
+
+        return view('success');
 
 
     }
